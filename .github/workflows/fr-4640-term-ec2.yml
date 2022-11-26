@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tf-vpc-deploy:
+  ec2-deploy:
     runs-on: ubuntu-latest
     env:
       AWS_KEY: ${{ secrets.AWS_KEY }}

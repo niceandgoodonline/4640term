@@ -1,0 +1,24 @@
+name: Terraform EC2 DESTROY
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tf-k8s-destroy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_KEY: ${{ secrets.AWS_KEY }}
+      AWS_SEC: ${{ secrets.AWS_SEC }}
+      TF_EXT: ${{ secrets.TF_EXT }}
+    container: docker://niceandgoodonline/tf-awscli:latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: DESTROY fr-4640-term EC2 Instances
+      run: |
+        source .github/sh/aws_auth.sh
+        source .github/sh/assume_tf_iamrole.sh
+        source .github/sh/vars.sh
+        cd terraform/ec2
+        source ./pull_vpc_state.sh
+        terraform init
+        terraform destroy -auto-approve -var-file="state.tfvars"

@@ -21,4 +21,4 @@ jobs:
         cd terraform/ec2
         source ./pull_vpc_state.sh "basic"
         terraform init
-        terraform apply -auto-approve
+        terraform apply -auto-approve -var-file="state.tfvars"

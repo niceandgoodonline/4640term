@@ -21,9 +21,8 @@ vpc_id=$(get_ssm_value $vpc_id_param)
 frontend_sg=$(get_ssm_value $frontend_sg_id_param)
 db_sg=$(get_ssm_value $db_sg_id_param)
 
-private_array="[$(sed "s|,|\",\"|g" private.subnets)]"
-public_array="[$(sed "s|,|\",\"|g" public.subnets)]"
-cat private.subnets
+private_array="[\"$(sed "s|,|\",\"|g" private.subnets)\"]"
+public_array="[\"$(sed "s|,|\",\"|g" public.subnets)\"]"
 echo "private_array : $private_array"
 rm *.subnets
 

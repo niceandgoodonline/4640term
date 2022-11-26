@@ -23,6 +23,8 @@ db_sg=$(get_ssm_value $db_sg_id_param)
 
 private_array="[$(sed "s|,|\",\"|g" private.subnets)]"
 public_array="[$(sed "s|,|\",\"|g" public.subnets)]"
+cat private.subnets
+echo "private_array : $private_array"
 rm *.subnets
 
 sed -i "s|PRIVATE_SUBNETS|$private_array|g" state.tfvars

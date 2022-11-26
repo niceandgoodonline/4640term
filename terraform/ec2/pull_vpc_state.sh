@@ -11,7 +11,7 @@ vpc_id_param="/$project/state/vpc/id"
 cp state.tfvars.tpl state.tfvars
 
 get_ssm_value(){
-  aws ssm get-parameter --name $1 | jq -r .Parameter.Value
+  aws ssm get-parameter --region "us-west-2" --name $1 | jq -r .Parameter.Value
 }
 
 get_ssm_value $private_subnets_param > private.subnets

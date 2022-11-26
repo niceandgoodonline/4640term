@@ -1,7 +1,7 @@
 #!/bin/sh
 
 config_profile="$1"
-project="fr-4640-term-backend"
+project="fr-4640-term"
 private_subnets_param="/$project/state/vpc/private_subnets"
 public_subnets_param="/$project/state/vpc/public_subnets"
 frontend_sg_id_param="/$project/state/vpc/sg/frontend"

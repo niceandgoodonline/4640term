@@ -1,0 +1,29 @@
+
+ec2_config = [
+  {
+    name                   = "frontend"
+    ami_id                 = "ami-ebd02392"
+    instance_type          = "t2.micro"
+    subnet_id              = var.public_subnets[random_integer.subnet_int.result]
+    vpc_security_group_ids = var.frontend_sg
+    tags                   = {
+      Repo        = "github.com/niceandgoodonline/4640term"
+      Environment = "4640-term"
+      Name        = "frontend"
+      Service     = "APP"
+    }
+  },
+  {
+    name                   = "db"
+    ami_id                 = "ami-ebd02392"
+    instance_type          = "t2.micro"
+    subnet_id              = var.private_subnets[random_integer.subnet_int.result]
+    vpc_security_group_ids = var.db_sg
+    tags                   = {
+      Repo        = "github.com/niceandgoodonline/4640term"
+      Environment = "4640-term"
+      Name        = "db"
+      Service     = "DB"
+    }
+  }
+]

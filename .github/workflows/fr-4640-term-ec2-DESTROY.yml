@@ -19,6 +19,6 @@ jobs:
         source .github/sh/assume_tf_iamrole.sh
         source .github/sh/vars.sh
         cd terraform/ec2
-        source ./pull_vpc_state.sh
+        source ./pull_vpc_state.sh "basic"
         terraform init
         terraform destroy -auto-approve -var-file="state.tfvars"

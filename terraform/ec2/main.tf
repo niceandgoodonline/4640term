@@ -10,8 +10,3 @@ module "ec2" {
   vpc_security_group_ids = each.value.vpc_security_group_ids
   tags                   = each.value.tags
 }
-
-resource "random_integer" "subnet_int" {
-  min = 0
-  max = 1
-}

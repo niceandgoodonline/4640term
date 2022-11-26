@@ -3,22 +3,6 @@ variable "region" {
   default = "us-west-2"
 }
 
-variable "private_subnets" {
-  type = list(string)
-}
-
-variable "public_subnets" {
-  type = list(string)
-}
-
-variable "frontend_sg" {
-  type = string
-}
-
-variable "db_sg" {
-  type = string
-}
-
 variable "vpc_id" {
   type = string
 }

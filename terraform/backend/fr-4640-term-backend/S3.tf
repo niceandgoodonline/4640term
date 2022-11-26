@@ -9,7 +9,6 @@ resource "aws_kms_key" "fr_4640_term_kms_key" {
 
 resource "aws_s3_bucket" "fr_4640_term_backend" {
   bucket = var.bucket
-
   tags = var.tags
 }
 

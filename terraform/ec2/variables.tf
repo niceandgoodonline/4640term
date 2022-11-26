@@ -18,7 +18,7 @@ locals {
   ec2config = [
     for instance in var.ec2_config : [{
       name                   = instance.name
-      ami                    = instance.ami_id
+      ami_id                 = instance.ami_id
       instance_type          = instance.instance_type
       subnet_id              = instance.subnet_id
       vpc_security_group_ids = instance.vpc_security_group_ids

@@ -1,0 +1,22 @@
+name: Ansible Frontend Configuration Management
+
+on:
+  workflow_dispatch:
+
+jobs:
+  tf-backend-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_KEY: ${{ secrets.AWS_KEY }}
+      AWS_SEC: ${{ secrets.AWS_SEC }}
+      TF_EXT: ${{ secrets.TF_EXT }}
+    container: docker://niceandgoodonline/alpine-ansible-aws:latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Configure Frontend EC2 with Ansible
+      run: |
+        source .github/sh/aws_auth.sh
+        source .github/sh/assume_ansible_iamrole.sh
+        source .github/sh/vars.sh
+        cd ansible/pull_cloud_state.sh frontend
+        

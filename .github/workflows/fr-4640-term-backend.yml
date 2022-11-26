@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  tf--backend-deploy:
+  tf-backend-deploy:
     runs-on: ubuntu-latest
     env:
       AWS_KEY: ${{ secrets.AWS_KEY }}
@@ -18,6 +18,6 @@ jobs:
         source .github/sh/aws_auth.sh
         source .github/sh/assume_tf_iamrole.sh
         source .github/sh/vars.sh
-        cd terraform/backend/fr-460-term-backend
+        cd terraform/backend/fr-4640-term-backend
         terraform init
         terraform apply -auto-approve

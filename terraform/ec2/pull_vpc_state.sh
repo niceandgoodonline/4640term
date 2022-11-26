@@ -31,4 +31,6 @@ sed -i "s|VPC_ID|$vpc_id|g" state.tfvars
 sed -i "s|FRONTEND_SG|$frontend_sg|g" state.tfvars
 sed -i "s|DB_SG|$db_sg|g" state.tfvars
 
+cat state.tfvars
+
 cat "config/$1" >> state.tfvars

@@ -5,7 +5,6 @@ config_profile="$1"
 
 # AWS variables
 aws_region="us-west-2"
-aws_session="pullVpcState"
 
 # SSM Parameter Store variables
 project="fr-4640-term"
@@ -19,7 +18,7 @@ db_sg_id_param="/$project/$state_path/sg/db"
 cp state.tfvars.tpl state.tfvars
 
 get_ssm_value(){
-  aws ssm get-parameter --region $aws_region --name $aws_session | jq -r .Parameter.Value
+  aws ssm get-parameter --region $aws_region --name $1 | jq -r .Parameter.Value
 }
 
 vpc_id=$(get_ssm_value $vpc_id_param)

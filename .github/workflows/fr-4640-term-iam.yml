@@ -20,4 +20,4 @@ jobs:
         source .github/sh/vars.sh
         cd terraform/iam
         terraform init
-        terraform destroy -auto-approve
+        terraform apply -auto-approve

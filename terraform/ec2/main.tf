@@ -8,5 +8,7 @@ module "ec2" {
   instance_type          = each.value.instance_type
   subnet_id              = each.value.subnet_id
   vpc_security_group_ids = each.value.vpc_security_group_ids
+  iam_instance_profile   = each.value.iam_instance_profile
+  user_data              = "${file(each.value.user_data)}"
   tags                   = each.value.tags
 }

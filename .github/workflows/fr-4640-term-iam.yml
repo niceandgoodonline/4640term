@@ -1,0 +1,23 @@
+name: Terraform IAM Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  iam-deploy:
+    runs-on: ubuntu-latest
+    env:
+      AWS_KEY: ${{ secrets.AWS_KEY }}
+      AWS_SEC: ${{ secrets.AWS_SEC }}
+      TF_EXT: ${{ secrets.TF_EXT }}
+    container: docker://niceandgoodonline/tf-awscli:latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy fr-4640-term IAM
+      run: |
+        source .github/sh/aws_auth.sh
+        source .github/sh/assume_tf_iamrole.sh
+        source .github/sh/vars.sh
+        cd terraform/iam
+        terraform init
+        terraform apply -auto-approve

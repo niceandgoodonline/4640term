@@ -22,6 +22,8 @@ locals {
       instance_type          = instance.instance_type
       subnet_id              = instance.subnet_id
       vpc_security_group_ids = instance.vpc_security_group_ids
+      iam_instance_profile   = instance.iam_instance_profile
+      user_data              = instance.user_data
       tags                   = instance.tags
     }]
   ]

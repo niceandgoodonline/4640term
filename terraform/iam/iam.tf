@@ -1,7 +1,7 @@
 ### db iam role
 resource "aws_iam_role" "db_role"{
   name               = "db_role"
-  assume_role_policy = data.aws_iam_policy_document.db_s3_role_policy.json
+  assume_role_policy = data.aws_iam_policy_document.db_role_policy.json
 }
 
 resource "aws_iam_role_policy" "db_iam_policy"{

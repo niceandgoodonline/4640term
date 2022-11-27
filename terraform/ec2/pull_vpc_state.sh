@@ -39,3 +39,5 @@ sed -i "s|PUB_SUBNET|$public_subnet0|g" state.tfvars
 sed -i "s|VPC_ID|$vpc_id|g" state.tfvars
 sed -i "s|APP_SG|$app_sg|g" state.tfvars
 sed -i "s|DB_SG|$db_sg|g" state.tfvars
+
+cat state.tfvars

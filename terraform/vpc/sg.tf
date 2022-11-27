@@ -1,8 +1,8 @@
 # define security groups here
-resource "aws_security_group" "frontend_sg" {
+resource "aws_security_group" "app_sg" {
   depends_on  = [module.vpc]
 
-  name        = "frontend_sg"
+  name        = "app_sg"
   description = "Security group for public apps in public subnets"
   vpc_id      = module.vpc.vpc_id
 

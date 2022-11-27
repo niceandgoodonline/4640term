@@ -25,13 +25,13 @@ resource "aws_ssm_parameter" "vpc_public_subnets_state" {
   value = join(",", module.vpc.public_subnets)
 }
 
-resource "aws_ssm_parameter" "frontend_sg" {
+resource "aws_ssm_parameter" "app_sg" {
   depends_on = [
-    resource.aws_security_group.frontend_sg
+    resource.aws_security_group.app_sg
   ]
-  name  = "/fr-4640-term/state/vpc/sg/frontend"
+  name  = "/fr-4640-term/state/vpc/sg/app"
   type  = "String"
-  value = resource.aws_security_group.frontend_sg.id
+  value = resource.aws_security_group.app_sg.id
 }
 
 resource "aws_ssm_parameter" "db_sg" {

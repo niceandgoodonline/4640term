@@ -6,7 +6,7 @@ on:
     branches:
     - main
     paths:
-    - s3
+    - 's3/**'
 
 jobs:
   push-to-s3:

@@ -1,4 +1,4 @@
-FROM python3
+FROM python:alpine3.16
 
 COPY ./entrypoint.sh /tmp/entrypoint.sh
 

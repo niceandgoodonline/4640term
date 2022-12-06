@@ -14,19 +14,17 @@ help(){
 }
 
 iterate_tag(){
-  TAG=$(curl https://registry.hub.docker.com/v1/repositories/$REPO/${NAME}-${SERVICE}/tags  | sed -e 's/[][]//g' -e 's/"//g' -e 's/ //g' | tr '}' '\n'  | sed -sn 2p | cut -d ":" -f3)
+  TAG=$(curl https://registry.hub.docker.com/v2/repositories/$REPO/${NAME}-${SERVICE}/tags  | grep -oE "\"name\":\"[0-9]+\"" | cut -d ":" -f 2 | cut -d "\"" -f 2)
   if [ -z "$TAG" ]; then
     TAG=1;
   fi
 }
 
 build(){
-  iterate_tag
   docker build -t "${NAME}-${SERVICE}:${TAG}" .
 }
 
 push(){
-  iterate_tag
   docker tag "$NAME-$SERVICE:${TAG}" "$REPO/$NAME-$SERVICE:${TAG}"
   docker push "$REPO/$NAME-$SERVICE:${TAG}"
   docker tag "$NAME-$SERVICE:${TAG}" "$REPO/$NAME-$SERVICE:latest"
@@ -34,7 +32,6 @@ push(){
 }
 
 run(){
-  iterate_tag
   docker run -it --rm "${NAME}-${SERVICE}:${TAG}"
 }
 
@@ -64,8 +61,9 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
-if [ BUILD_BOOL -eq 1 ]; then build; fi
-if [ PUSH_BOOL -eq 1 ]; then push; fi
-if [ RUN_BOOL -eq 1 ]; then run; fi
+iterate_tag
+if [ $BUILD_BOOL -eq 1 ]; then build; fi
+if [ $PUSH_BOOL -eq 1 ]; then push; fi
+if [ $RUN_BOOL -eq 1 ]; then run; fi
 
 cd $exec_dir

@@ -15,6 +15,6 @@ jobs:
       run: |
         echo "$DKH_PASS" | docker login -u niceandgoodonline --password-stdin
         cd docker
-        . ./docker-tool.sh app -b -p
-        . ./docker-tool.sh db -b -p
-        . ./docker-tool.sh nginx -b -p
+        . ./docker-tool.sh app build push
+        . ./docker-tool.sh db build push
+        . ./docker-tool.sh nginx build push

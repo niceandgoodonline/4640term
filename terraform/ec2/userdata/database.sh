@@ -1,6 +1,6 @@
 #!/bin/bash
 stage="/staging"
-repo="s3://fr-4640-code-repo"
+repo="s3://fr-4640-code-repo/VM"
 sudo mkdir $stage
 sudo apt-get update
 sudo apt-get install -y -q awscli mysql-server python3 python3-pip

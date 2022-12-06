@@ -1,21 +1,22 @@
-name: Ansible Frontend Configuration Management
+name: Push to s3
 
 on:
   workflow_dispatch:
 
 jobs:
-  ansible-frontend-cm:
+  push-to-s3:
     runs-on: ubuntu-latest
     env:
       AWS_KEY: ${{ secrets.AWS_KEY }}
       AWS_SEC: ${{ secrets.AWS_SEC }}
       TF_EXT: ${{ secrets.TF_EXT }}
-    container: docker://niceandgoodonline/alpine-ansible-aws:latest
+    container: docker://niceandgoodonline/tf-awscli:latest
     steps:
     - uses: actions/checkout@v3
-    - name: Configure Frontend EC2 with Ansible
+    - name: Push updates to /s3 to the cloud
       run: |
         source .github/sh/aws_auth.sh
-        source .github/sh/assume_ansible_iamrole.sh
+        source .github/sh/assume_tf_iamrole.sh
         source .github/sh/vars.sh
-        cd ansible/pull_cloud_state.sh frontend
+        cd s3
+        aws s3 sync . s3://fr-4640-code-repo

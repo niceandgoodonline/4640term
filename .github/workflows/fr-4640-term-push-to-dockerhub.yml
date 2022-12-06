@@ -1,0 +1,17 @@
+name: Push to Dockerhub
+
+on:
+  workflow_dispatch:
+
+jobs:
+  push-to-dockerhub:
+    runs-on: ubuntu-latest
+    env:
+      DKH_PASS: ${{ secrets.DKH_PASS }}
+    container: docker://docker:latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Deploy fr-4640-term Backend Bucket
+      run: |
+        echo "$DKH_PASS" | docker login -u niceandgoodonline --password-stdin
+        docker build

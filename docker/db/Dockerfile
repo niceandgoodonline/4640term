@@ -1,8 +1,9 @@
-FROM python3
+FROM ubuntu/mysql
 
 COPY ./entrypoint.sh /tmp/entrypoint.sh
 
-RUN apk update \
-&& apk add --no-cache aws-cli jq bash
+RUN apt-get update \
+&& apt-get install awscli \
+&& apt-get clean
 
 ENTRYPOINT ["/tmp/entrypoint.sh"]

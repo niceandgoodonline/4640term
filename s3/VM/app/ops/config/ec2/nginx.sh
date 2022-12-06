@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -z "$util" ]; then
-  util="/staging/util"
+  util="/tmp/staging/util"
   source "$util/app_var.sh"
   source "$util/aws_var.sh"
 else

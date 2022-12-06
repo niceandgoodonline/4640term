@@ -1,5 +1,5 @@
 #!/bin/bash
-stage="/staging"
+stage="/tmp/staging"
 repo="s3://fr-4640-code-repo/docker"
 sudo mkdir $stage
 sudo aws s3 sync "$repo/app/" "$stage/app"

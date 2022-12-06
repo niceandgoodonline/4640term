@@ -1,5 +1,5 @@
 #!/bin/bash
-stage="/staging"
+stage="/tmp/staging"
 repo="s3://fr-4640-code-repo/VM"
 sudo mkdir $stage
 sudo apt-get update

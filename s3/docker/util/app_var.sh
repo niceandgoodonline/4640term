@@ -1,6 +1,6 @@
 #!/bin/bash
 
-stage="/staging"
+stage="/tmp/staging"
 working="$stage/docker/app/ops/config/ec2"
 dev_cnf="$stage/docker/app/dev/config"
 dev_src="$stage/docker/app/dev/code"

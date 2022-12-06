@@ -14,4 +14,7 @@ jobs:
     - name: Deploy fr-4640-term Backend Bucket
       run: |
         echo "$DKH_PASS" | docker login -u niceandgoodonline --password-stdin
-        docker build
+        cd docker
+        . ./docker-tool.sh app -b -p
+        . ./docker-tool.sh db -b -p
+        . ./docker-tool.sh nginx -b -p

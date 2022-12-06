@@ -5,6 +5,10 @@ cd "${1}"
 source meta.docker
 shift
 
+BUILD_BOOL=0
+PUSH_BOOL=0
+RUN_BOOL=0
+
 help(){
   echo "Please supply a platform and service path (e.g. 'rockylinux/go') and docker action argument: b|build, p|push, r|run are valid arguments."
 }
@@ -42,15 +46,15 @@ fi
 while [[ $# -gt 0 ]]; do
   case $1 in
     b|build)
-      build
+      BUILD_BOOL=1
       shift
       ;;
     p|push)
-      push
+      PUSH_BOOL=1
       shift
       ;;
     r|run)
-      run
+      RUN_BOOL=1
       shift # past argument
       ;;
     *)
@@ -59,5 +63,9 @@ while [[ $# -gt 0 ]]; do
       ;;
   esac
 done
+
+if [ BUILD_BOOL -eq 1 ]; then build; fi
+if [ PUSH_BOOL -eq 1 ]; then push; fi
+if [ RUN_BOOL -eq 1 ]; then run; fi
 
 cd $exec_dir

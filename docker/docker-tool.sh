@@ -15,9 +15,7 @@ help(){
 
 iterate_tag(){
   TAG=$(curl https://registry.hub.docker.com/v2/repositories/$REPO/${NAME}-${SERVICE}/tags  | grep -oE "\"name\":\"[0-9]+\"" | cut -d ":" -f 2 | cut -d "\"" -f 2)
-  if [ -z "$TAG" ]; then
-    TAG=1;
-  fi
+  TAG=$(( $TAG + 1 ))
 }
 
 build(){

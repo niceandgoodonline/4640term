@@ -2,6 +2,10 @@ name: Push to s3
 
 on:
   workflow_dispatch:
+  branches:
+  - main
+  paths:
+  - s3
 
 jobs:
   push-to-s3:

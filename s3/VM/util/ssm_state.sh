@@ -18,8 +18,10 @@ generate_password()
 push_user_password()
 {
   _x=$(generate_password 128)
-  sudo -e echo $_x | passwd "$1"
-  push_ssm_value "$2" $_x
+  _user=$1
+  _ssm_path=$2
+  sudo chpasswd <<< "$_user:$_x"
+  push_ssm_value "$_ssm_path" $_x
   _x=""
 }
 

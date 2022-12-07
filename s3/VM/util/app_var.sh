@@ -10,4 +10,4 @@ backend_home="/sysusr/backend"
 
 # Other useful path variables
 source $util/aws_var.sh
-source $util./ssm_path.sh
+source $util/ssm_path.sh

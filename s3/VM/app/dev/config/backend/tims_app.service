@@ -1,7 +1,6 @@
 [Unit]
 Description=Tims Python backend example service
 After=network.target
-Requires=mysql.service
 
 [Service]
 WorkingDirectory=/sysusr/backend/app

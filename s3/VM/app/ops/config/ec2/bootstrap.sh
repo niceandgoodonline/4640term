@@ -22,3 +22,6 @@ sleep 300
 
 # Pull DB State from cloud
 source "$working/pull_db_state.sh"
+
+# Enable Python backend service
+source "$working/service.sh"

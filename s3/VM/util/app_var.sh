@@ -1,6 +1,7 @@
 #!/bin/bash
 
 stage="/tmp/staging"
+util="$stage/util"
 working="$stage/app/ops/config/ec2"
 dev_cnf="$stage/app/dev/config"
 dev_src="$stage/app/dev/code"

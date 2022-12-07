@@ -12,11 +12,11 @@ source "$working/seed_user.sh" "backend" "$app_path"
 # Setup Nginx
 source "$working/nginx.sh"
 
-# Get backend python packages
-source "$working/backend_packages.sh"
-
 # Move source to proper destination
 source "$working/place_code.sh"
+
+# Get backend python packages
+source "$working/backend_packages.sh"
 echo "sleeping 5 minutes..."
 sleep 300
 

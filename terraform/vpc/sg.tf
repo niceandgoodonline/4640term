@@ -80,10 +80,26 @@ resource "aws_security_group" "db_sg" {
     cidr_blocks = [module.vpc.vpc_cidr_block]
   }
 
+  ingress {
+    description = "HTTP from ALL"
+    from_port = 80
+    to_port = 80
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
   egress {
     description = "HTTPS to ALL"
     from_port = 443
     to_port = 443
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    description = "HTTP to ALL"
+    from_port = 80
+    to_port = 80
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

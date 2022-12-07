@@ -2,6 +2,11 @@ name: Terraform IAM Deploy
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+    - main
+    paths:
+    - 'terraform/iam/**'
 
 jobs:
   iam-deploy:

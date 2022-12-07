@@ -5,7 +5,7 @@ source "$util/app_var.sh"
 # Helper Functions
 source "$util/ssm_state.sh"
 # Remove/Create Users
-# source "$util/user_management.sh"
+source "$util/user_management.sh"
 source "$working/seed_user" "frontend" "$app_path"
 source "$working/seed_user" "backend" "$app_path"
 

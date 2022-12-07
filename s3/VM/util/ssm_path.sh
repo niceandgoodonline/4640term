@@ -4,7 +4,7 @@
 project="/fr-4640-term"
 
 # SSM App path
-app_path="$project/state/ec2/app/"
+app_path="$project/state/ec2/app"
 
 # DB SSM Parameter Store paths
 db_path="$project/state/ec2/db"

@@ -19,7 +19,7 @@ remove_user()
 
 create_user()
 {
-  sudo useradd -m -d "/sysusr/$user"
+  sudo useradd -m -d "/sysusr/$user" "$user"
   push_user_password "$user" $1
 }
 

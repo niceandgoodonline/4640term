@@ -95,4 +95,17 @@ data "aws_iam_policy_document" "app_policy_doc" {
       "arn:aws:ssm:::fr-4640-term/state/*"
     ]
   }
+
+  statement {
+    sid = "appPushSSM"
+
+    actions = [
+      "ssm:PutParameter",
+      "ssm:DescribeParameters"
+    ]
+
+    resources = [
+      "arn:aws:ssm:::fr-4640-term/state/ec2/app/frontend/*"
+    ]
+  }
 }

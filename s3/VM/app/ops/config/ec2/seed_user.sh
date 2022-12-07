@@ -3,7 +3,7 @@
 if [ -z "$util" ]; then
   util="/tmp/staging/util"
   source "$util/user_management.sh"
-else
+fi
 
 if [ -z "$1" ]; then echo "no user passed. type username:";
   read user

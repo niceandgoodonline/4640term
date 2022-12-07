@@ -4,7 +4,7 @@ if [ -z "$util" ]; then
   util="/tmp/staging/util"
   source "$util/app_var.sh"
   source "$util/aws_var.sh"
-else
+fi
 
 # NGINX variables
 nginx_sites_path="/etc/nginx/sites-enabled/default"

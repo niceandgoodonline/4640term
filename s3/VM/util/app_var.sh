@@ -9,5 +9,5 @@ frontend_home="/sysusr/frontend"
 backend_home="/sysusr/backend"
 
 # Other useful path variables
-source ./aws_var.sh
-source ./ssm_path.sh
+source $util/aws_var.sh
+source $util./ssm_path.sh

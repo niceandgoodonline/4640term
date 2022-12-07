@@ -5,16 +5,16 @@ if [ -z "$util" ]; then
   source "$util/user_management.sh"
 else
 
-if [ -z $1 ]; then echo "no user passed. type username:";
+if [ -z "$1" ]; then echo "no user passed. type username:";
   read user
-  if [ -z $user ]; then echo "no user passed. exiting."; exit 1; fi
+  if [ -z "$user" ]; then echo "no user passed. exiting."; exit 1; fi
 else
   user=$1
 fi
 
-if [ -z $2 ]; then echo "no ssm path passed. type ssm path:";
+if [ -z "$2" ]; then echo "no ssm path passed. type ssm path:";
   read ssm_path
-  if [ -z $user ]; then echo "no ssm path passed. exiting."; exit 1; fi
+  if [ -z "$user" ]; then echo "no ssm path passed. exiting."; exit 1; fi
 else
   ssm_path=$2
 fi

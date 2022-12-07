@@ -17,8 +17,8 @@ source "$working/place_code.sh"
 
 # Get backend python packages
 source "$working/backend_packages.sh"
-echo "sleeping 5 minutes..."
-sleep 300
+echo "sleeping 3 minutes..."
+sleep 180
 
 # Pull DB State from cloud
 source "$working/pull_db_state.sh"

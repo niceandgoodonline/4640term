@@ -7,6 +7,7 @@ fi
 
 etc_file="/etc/systemd/system/tim.service"
 dev_file="$dev_cnf/backend/tims_app.service"
+backend_subpath="app/dev/config/backend"
 
 if [ "$1" == "pull" ]; then
   sudo aws s3 sync "$s3repo/$backend_subpath" "$stage/$backend_subpath"

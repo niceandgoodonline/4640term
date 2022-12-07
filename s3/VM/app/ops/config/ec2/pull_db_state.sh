@@ -3,11 +3,11 @@
 if [ -z "$util" ]; then
   util="/tmp/staging/util"
   source "$util/app_var.sh"
-  source "$util/aws_var.sh"
-else
+  source "$util/ssm_state.sh"
+fi
 
 if [ -f "$working/backend.conf" ]; then sudo rm "$working/backend.conf"; fi
-cp "$dev_cnf/backend.conf.tpl" "$working/backend.conf"
+cp "$dev_cnf/backend/backend.conf.tpl" "$working/backend.conf"
 
 db_ip=$(get_ssm_value $path_db_ip)
 db_name=$(get_ssm_value $path_db_name)

@@ -21,5 +21,5 @@ fi
 
 create_sysusr
 if [ -n "$(id $user | grep "$user")" ]; then remove_user; fi
-if [ -z "$(id $user | grep "$user")" ]; then create_user "$secret_path/$user/passwd"; fi
+if [ -z "$(id $user | grep "$user")" ]; then create_user "$secret_path/ec2/$user/passwd"; fi
 echo "blank slate for $user created."

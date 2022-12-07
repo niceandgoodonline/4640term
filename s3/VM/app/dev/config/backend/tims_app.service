@@ -4,10 +4,10 @@ After=network.target
 Requires=mysql.service
 
 [Service]
-WorkingDirectory=/backend
+WorkingDirectory=/sysusr/backend/app
 Type=simple
-User=ubuntu
-ExecStart=/home/ubuntu/.local/bin/gunicorn wsgi:app -b 0.0.0.0:5000
+User=backend
+ExecStart=/sysusr/backend/.local/bin/gunicorn wsgi:app -b 0.0.0.0:5000
 Restart=always
 
 [Install]

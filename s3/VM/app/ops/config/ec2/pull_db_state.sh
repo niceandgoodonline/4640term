@@ -21,6 +21,6 @@ sudo sed -i "s|DB_NAME|$db_name|g" "$working/backend.conf"
 sudo sed -i "s|APP_DB_USER|$app_user|g" "$working/backend.conf"
 sudo sed -i "s|APP_DB_PASS|$app_pass|g" "$working/backend.conf"
 
-if [ -f "$backend_home/backend.conf" ]; then sudo rm "$backend_home/backend.conf"; fi
-mv "$working/backend.conf" "$backend_home/backend.conf"
+if [ -f "$backend_home/app/backend.conf" ]; then sudo rm "$backend_home/app/backend.conf"; fi
+mv "$working/backend.conf" "$backend_home/app/backend.conf"
 echo "backend.conf synced to infrastructure."

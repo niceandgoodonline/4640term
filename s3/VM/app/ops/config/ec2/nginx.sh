@@ -8,7 +8,7 @@ fi
 
 # NGINX variables
 nginx_sites_path="/etc/nginx/sites-enabled/default"
-nginx_sub_path="dev/config/nginx"
+nginx_sub_path="app/dev/config/nginx"
 
 if [ "$1" == "pull" ]; then
   sudo aws s3 sync "$s3repo/$nginx_sub_path" "$stage/$nginx_sub_path"

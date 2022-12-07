@@ -36,6 +36,8 @@ data "aws_iam_policy_document" "db_policy_doc" {
 
     resources = [
       "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/db/root",
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/frontend/*",
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/backend/*",
       "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/state/*"
     ]
   }
@@ -92,7 +94,9 @@ data "aws_iam_policy_document" "app_policy_doc" {
     ]
 
     resources = [
-      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/state/*"
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/state/*",
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/frontend/*",
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/backend/*"
     ]
   }
 
@@ -105,7 +109,8 @@ data "aws_iam_policy_document" "app_policy_doc" {
     ]
 
     resources = [
-      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/state/ec2/app/frontend/*"
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/frontend/*",
+      "arn:aws:ssm:us-west-2:666630334140:parameter/fr-4640-term/secret/ec2/backend/*"
     ]
   }
 }
